@@ -1,7 +1,9 @@
-export default function App(){
-  return(
+import Scroll from "./pages/Scroll";
+
+export default function App() {
+  return (
     <>
-      <h1 className="">Hello World!</h1>
+      <Scroll />
     </>
-  )
+  );
 }
