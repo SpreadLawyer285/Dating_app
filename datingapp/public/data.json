@@ -2,6 +2,8 @@
   "users": [
     {
       "id": 1,
+      "username": "bence24dev",
+      "password": "Bence@241",
       "firstName": "Bence",
       "age": 24,
       "gender": "male",
@@ -18,6 +20,8 @@
     },
     {
       "id": 2,
+      "username": "anna.art23",
+      "password": "Anna#232",
       "firstName": "Anna",
       "age": 23,
       "gender": "female",
@@ -34,6 +38,8 @@
     },
     {
       "id": 3,
+      "username": "david.start27",
+      "password": "David!273",
       "firstName": "Dávid",
       "age": 27,
       "gender": "male",
@@ -50,6 +56,8 @@
     },
     {
       "id": 4,
+      "username": "zsofi.yoga26",
+      "password": "Zsofi*264",
       "firstName": "Zsófia",
       "age": 26,
       "gender": "female",
@@ -66,6 +74,8 @@
     },
     {
       "id": 5,
+      "username": "mark.engineer29",
+      "password": "Mark@295",
       "firstName": "Márk",
       "age": 29,
       "gender": "male",
@@ -82,6 +92,8 @@
     },
     {
       "id": 6,
+      "username": "lili.sunset22",
+      "password": "Lili!226",
       "firstName": "Lili",
       "age": 22,
       "gender": "female",
@@ -96,9 +108,10 @@
       "profilePicture": "https://randomuser.me/api/portraits/women/45.jpg",
       "active": true
     },
-
     {
       "id": 7,
+      "username": "tamas.arch31",
+      "password": "Tamas#317",
       "firstName": "Tamás",
       "age": 31,
       "gender": "male",
@@ -115,6 +128,8 @@
     },
     {
       "id": 8,
+      "username": "reka.bakes25",
+      "password": "Reka@258",
       "firstName": "Réka",
       "age": 25,
       "gender": "female",
@@ -131,6 +146,8 @@
     },
     {
       "id": 9,
+      "username": "adam.ai26",
+      "password": "Adam!269",
       "firstName": "Ádám",
       "age": 26,
       "gender": "male",
@@ -147,6 +164,8 @@
     },
     {
       "id": 10,
+      "username": "noemi.law28",
+      "password": "Noemi#2810",
       "firstName": "Noémi",
       "age": 28,
       "gender": "female",
