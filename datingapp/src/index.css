@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+<<<<<<< HEAD
 /* Hide Edge / IE native reveal button */
 input::-ms-reveal,
 input::-ms-clear {
@@ -16,3 +17,8 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   height: 0;
   margin: 0;
 }
+=======
+body {
+  background-color: white;
+}
+>>>>>>> 2cc757a (big yahu)

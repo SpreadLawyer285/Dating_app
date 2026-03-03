@@ -28,22 +28,22 @@ const Scroll = () => {
     setLikedUsers((prev) => prev.filter((userId) => userId !== id));
   };
 
+  const [clicked, setClicked] = useState(false);
+
   return (
     <div className="h-screen w-full overflow-y-scroll snap-y snap-mandatory">
       {users.map((user) => (
         <div
           key={user.id}
-          className="h-screen w-full snap-start flex flex-col items-center justify-center relative bg-black text-white"
+          className="h-screen w-full snap-start flex flex-col items-center justify-center relative bg-white text-white"
         >
           <img
             src={user.profilePicture}
             alt={user.firstName}
-            className="absolute inset-0 w-[400px] h-[600px] object-cover opacity-60"
+            className="absolute inset-0 w-100 h-150 my-[10vh] mx-auto"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-80" />
-
-          <div className="relative z-10 text-center px-6 max-w-md">
+          <div className="relative z-10 bg-black/50 backdrop-blur-md text-center mt-[25vh] p-2 max-w-sm">
             <h2 className="text-3xl font-bold">
               {user.firstName}, {user.age}
             </h2>
@@ -52,19 +52,39 @@ const Scroll = () => {
           </div>
 
           <div className="absolute bottom-16 flex gap-6 z-10">
-            <button
-              onClick={() => handleDislike(user.id)}
-              className="bg-red-500 hover:bg-red-600 transition px-6 py-3 rounded-full text-white font-semibold shadow-lg"
-            >
-              Dislike
-            </button>
+            {user.id === 1 ? (
+              <>
+                <button
+                  onClick={() => handleLike(user.id)}
+                  className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-full text-white font-semibold shadow-lg"
+                >
+                  Like
+                </button>
 
-            <button
-              onClick={() => handleLike(user.id)}
-              className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-full text-white font-semibold shadow-lg"
-            >
-              Like
-            </button>
+                <button
+                  onClick={() => handleLike(user.id)}
+                  className="bg-green-700 hover:bg-green-800 transition px-6 py-3 rounded-full text-white font-semibold shadow-lg"
+                >
+                  Super Like
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => handleDislike(user.id)}
+                  className="bg-red-500 hover:bg-red-600 transition px-6 py-3 rounded-full text-white font-semibold shadow-lg"
+                >
+                  Dislike
+                </button>
+
+                <button
+                  onClick={() => handleLike(user.id)}
+                  className="bg-green-500 hover:bg-green-600 transition px-6 py-3 rounded-full text-white font-semibold shadow-lg"
+                >
+                  Like
+                </button>
+              </>
+            )}
           </div>
 
           {likedUsers.includes(user.id) && (
