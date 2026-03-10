@@ -12,19 +12,12 @@ const Navbar = () => {
       {/* Toggle fül */}
       <button
         onClick={() => setOpen(!open)}
-        className="absolute left-[-40px] bottom-10 w-10 h-16 bg-gray-800 rounded-l-lg flex items-center justify-center hover:bg-gray-700"
+        className="absolute left-[-40px] top-10 w-10 h-16 bg-gray-800 rounded-l-lg flex items-center justify-center hover:bg-gray-700"
       >
         ☰
       </button>
 
       <h1 className="text-xl font-bold mb-6">Menu</h1>
-
-      <Link
-        to="/"
-        className="w-32 text-center bg-gray-700 hover:bg-gray-600 py-3 rounded-lg transition"
-      >
-        Scroll
-      </Link>
 
       <Link
         to="/profile"
