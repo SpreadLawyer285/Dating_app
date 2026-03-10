@@ -2,6 +2,15 @@ import { useState, useEffect } from "react"
 import data from "../../public/data.json"
 import Navbar from "../components/navbar"
 import { MapPin } from "lucide-react"
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card"
 
 export default function Profile() {
   const [userFName, setUserFName] = useState("")
@@ -20,23 +29,24 @@ export default function Profile() {
 
   useEffect(() => {
     const user = data.users[1]
-
-    setUserFName(user.firstName)
-    setUserAge(user.age)
-    setUserGender(user.gender)
-    setUserLocation(user.location)
-    setUserBio(user.bio)
-    setUserInterests(user.interests)
-    setUserLookingFor(user.lookingFor)
-    setUserHeight(user.heightCm)
-    setUserEducation(user.education)
-    setUserSmoking(user.smoking)
-    setUserDrinking(user.drinking)
-    setUserProfilePicture(user.profilePicture)
-    setUserActive(user.active)
+    if (user) {
+      setUserFName(user.firstName)
+      setUserAge(user.age)
+      setUserGender(user.gender)
+      setUserLocation(user.location)
+      setUserBio(user.bio)
+      setUserInterests(user.interests)
+      setUserLookingFor(user.lookingFor)
+      setUserHeight(user.heightCm)
+      setUserEducation(user.education)
+      setUserSmoking(user.smoking)
+      setUserDrinking(user.drinking)
+      setUserProfilePicture(user.profilePicture)
+      setUserActive(user.active)
+    }
   }, [])
 
-  const capitalizeWords = (str:string) => {
+  const capitalizeWords = (str: string) => {
     return str
       .toLowerCase() // Ensure all letters are lowercase first
       .split(' ') // Split the string into an array of words
@@ -47,57 +57,48 @@ export default function Profile() {
   return (
     <>
       <Navbar/>
-      <div id="container" className="flex gap-5 px-20">
-        <div className="left p-5 border w-[33%] rounded">
-          {userActive ? 
-          <div className="online bg-black/45 text-white w-fit px-2 rounded-xl">
-             🟢 Online 
-          </div>
-          : ""}
-          <img src={userProfilePicture} alt="Profile" className="rounded min-w-"/>
-          <div className="flex">
+      <div id="container" className="flex gap-5 p-4 md:px-20 flex-col md:flex-row">
+        <Card className="p-5 border w-full rounded">
+          <img src={userProfilePicture} alt="Profile" className="rounded w-full md:max-w-[80%]"/>
+          <div className="flex mt-4 items-center gap-2">
             <h2 className="text-2xl font-bold">{userFName}, {userAge}</h2>
-            {userActive ?
-            <div className="online ">
-               🟢
-            </div>
-            : ""}
+            {userActive ? <div className="online">🟢</div> : ""}
           </div>
-        </div>
-        <div className="right w-full border p-5">
+        </Card>
+        <Card className="w-full border p-5 rounded">
           <h1 className="font-bold text-2xl">{userFName}, {userAge}</h1>
           <h3 className="flex gap-2"><MapPin strokeWidth={2}/> {userLocation}</h3>
-          <hr />
+          <hr className="my-4"/>
           <h2 className="font-bold text-lg">About Me</h2>
-          {userBio}
+          <p>{userBio}</p>
           <h2 className="font-bold text-lg">Looking For</h2>
-          {userLookingFor}
+          <p>{userLookingFor}</p>
           <h2 className="font-bold text-lg">Interests</h2>
-          <div id="interests" className="flex gap-5">{userInterests.map(i=><li className="bg-gray-600/25 px-4 py-1 list-none rounded-2xl" key={i}>{i}</li>)}</div>
+          <div id="interests" className="flex gap-2 flex-wrap">{userInterests.map(i => <li className="bg-gray-600/25 px-4 py-1 list-none rounded-2xl" key={i}>{i}</li>)}</div>
           <h2 className="font-bold text-lg">At a Glance</h2>
-          <div className="glance flex gap-5">
+          <div className="glance flex gap-2 flex-wrap">
             <div className="bg-gray-600/25 px-4 py-1 rounded">
-              <p>Gender</p>
+              <p>Gender:</p>
               <p>{userGender}</p>
             </div>
             <div className="bg-gray-600/25 px-4 py-1 rounded">
-              <p>Height</p>
+              <p>Height:</p>
               <p>{userHeight} cm</p>
             </div>
             <div className="bg-gray-600/25 px-4 py-1 rounded">
-              <p>Educations:</p>
+              <p>Education:</p>
               <p>{userEducation}</p>
             </div>
             <div className="bg-gray-600/25 px-4 py-1 rounded">
               <p>Smoking:</p>
-              <p>{userSmoking ? "Smokes" : "Non-smoker" }</p>
+              <p>{userSmoking ? "Smokes" : "Non-smoker"}</p>
             </div>
             <div className="bg-gray-600/25 px-4 py-1 rounded">
               <p>Drinking:</p>
               <p>{capitalizeWords(userDrinking)}</p>
             </div>
           </div>
-        </div>
+        </Card>
       </div>
     </>
   )
